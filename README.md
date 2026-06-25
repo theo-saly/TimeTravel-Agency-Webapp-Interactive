@@ -38,7 +38,7 @@ Aucune librairie d'animation tierce (animations CSS natives uniquement).
 ## Features Implémentées
 
 ### Landing Page
-- Hero plein écran avec animation de gradient (drift 14–18s)
+- Hero plein écran avec **vidéo de fond** (`hero.mp4`) et animation de gradient (drift 14–18s)
 - Animations d'entrée en cascade (fade + slide-up)
 - Navigation fixe avec effet blur, menu burger responsive
 
@@ -46,14 +46,15 @@ Aucune librairie d'animation tierce (animations CSS natives uniquement).
 - 3 destinations temporelles avec card hover (zoom image)
 - Badge d'époque (Belle Époque, Préhistoire, Renaissance)
 - Modal détail : description longue, durée, prix, certification
+- Visuels intégrés localement (`public/assets/`)
 
 **Destinations disponibles :**
 
-| Destination | Époque | Durée | Prix |
-|---|---|---|---|
-| Paris 1889 | Belle Époque | 3 jours | 4 200 € |
-| Crétacé −65 Ma | Préhistorique | 2 jours | 7 800 € |
-| Florence 1504 | Renaissance | 4 jours | 5 100 € |
+| Destination | Époque | Durée | Prix | Visuel |
+|---|---|---|---|---|
+| Paris 1889 | Belle Époque | 3 jours | 4 200 € | `paris-1889.png` |
+| Crétacé −65 Ma | Préhistorique | 2 jours | 7 800 € | `cretace.png` |
+| Florence 1504 | Renaissance | 4 jours | 5 100 € | `florence.png` + `florence-video.mp4` |
 
 ### Chatbot IA conversationnel
 - Widget flottant (bas-droite), ouverture/fermeture toggle
@@ -83,9 +84,12 @@ Aucune librairie d'animation tierce (animations CSS natives uniquement).
 ### Génération de code — Claude (Anthropic)
 - Assistance à la génération et au débogage du code via Claude Code
 
-### Visuels (préparés, intégration prévue)
-- Images générées via DALL-E 3 / Bing Image Creator
-- Hébergement prévu sur Imgur ou Cloudinary
+### Visuels — Assets locaux
+- Images de destinations générées via IA (DALL-E 3 / Bing Image Creator)
+- Vidéos d'ambiance générées via IA (Runway / Sora)
+- Fichiers hébergés en local : `public/assets/`
+  - `paris-1889.png`, `cretace.png`, `florence.png`
+  - `hero.mp4` (fond vidéo hero), `florence-video.mp4` (ambiance Renaissance)
 
 ---
 
@@ -139,6 +143,13 @@ Ne jamais commiter ce fichier (déjà dans `.gitignore`).
 ## Structure du projet
 
 ```
+public/
+└── assets/
+    ├── paris-1889.png
+    ├── cretace.png
+    ├── florence.png
+    ├── hero.mp4
+    └── florence-video.mp4
 src/
 ├── components/
 │   ├── ChatWidget.jsx       # Widget chatbot IA
@@ -147,7 +158,7 @@ src/
 │   ├── Destinations.jsx     # Section galerie
 │   ├── Footer.jsx
 │   ├── Header.jsx
-│   ├── Hero.jsx
+│   ├── Hero.jsx             # Vidéo de fond hero.mp4
 │   ├── Histoire.jsx         # Section "Notre histoire"
 │   └── Intro.jsx
 ├── data/
