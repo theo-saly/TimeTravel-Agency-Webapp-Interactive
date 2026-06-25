@@ -14,8 +14,9 @@ Application front-end single-page avec chatbot IA conversationnel en temps réel
 
 | Section | Description |
 |---|---|
-| Hero | Page d'accueil animée avec CTA |
+| Hero | Page d'accueil animée avec vidéo de fond |
 | Destinations | Galerie de 3 voyages avec modal détail |
+| Quiz IA | Quiz de personnalisation → recommandation générée par IA |
 | Chatbot IA | Conseiller virtuel propulsé par Groq / Llama 3.1 |
 | Notre histoire | Présentation de l'agence |
 | Footer | Contact, liens, crédits |
@@ -67,6 +68,24 @@ Aucune librairie d'animation tierce (animations CSS natives uniquement).
 - Prompt système : conseiller virtuel, réponses en français, 3–5 phrases max
 - Gestion d'erreur avec message de repli
 
+### Quiz de recommandation personnalisée
+- 4 questions à choix multiples (3 options chacune) sur les préférences de voyage
+- Système de scoring : chaque réponse attribue des points aux 3 destinations
+- Calcul automatique de la destination la mieux adaptée au profil
+- Appel Groq API pour générer un texte de recommandation personnalisé (3–4 phrases, basé sur les réponses)
+- Affichage du résultat : carte destination + texte IA contextualisé + durée/prix
+- Gestion d'erreur : fallback si l'API est indisponible, la destination reste affichée
+- Option "Refaire le quiz" pour recommencer
+
+**Questions du quiz :**
+
+| # | Question | Options |
+|---|---|---|
+| 1 | Type d'expérience recherché | Culturelle/artistique · Aventure/nature · Élégance/raffinement |
+| 2 | Période préférée | XIXe–XXe s. · Temps anciens · Renaissance |
+| 3 | Environnement | Effervescence urbaine · Nature vierge · Art/architecture |
+| 4 | Activité idéale | Monuments historiques · Mégafaune ancienne · Ateliers/musées |
+
 ### UX & Accessibilité
 - Scroll reveal (Intersection Observer) sur les sections clés
 - Fermeture du modal via Escape ou clic arrière-plan
@@ -83,6 +102,13 @@ Aucune librairie d'animation tierce (animations CSS natives uniquement).
 - **Fournisseur :** [Groq](https://groq.com) — API gratuite, clé requise
 - **Rôle assigné :** conseiller de voyage temporel, francophone, en personnage
 - **Paramètres :** température 0.7, max 220 tokens
+
+### Quiz de recommandation — Groq API
+- **Modèle :** `llama-3.1-8b-instant` (même modèle que le chatbot)
+- **Usage :** génération d'un texte de recommandation personnalisé en fonction des 4 réponses du quiz
+- **Prompt dynamique :** inclut les questions + réponses de l'utilisateur, titre et tagline de la destination calculée
+- **Paramètres :** température 0.8, max 200 tokens
+- **Fallback :** message statique si l'API échoue — la destination reste affichée
 
 ### Génération de code — Claude (Anthropic)
 - Assistance à la génération et au débogage du code via Claude Code
@@ -163,7 +189,8 @@ src/
 │   ├── Header.jsx
 │   ├── Hero.jsx             # Vidéo de fond hero.mp4
 │   ├── Histoire.jsx         # Section "Notre histoire"
-│   └── Intro.jsx
+│   ├── Intro.jsx
+│   └── Quiz.jsx             # Quiz personnalisé + recommandation IA
 ├── data/
 │   └── destinations.js      # Données centralisées des destinations
 ├── hooks/
