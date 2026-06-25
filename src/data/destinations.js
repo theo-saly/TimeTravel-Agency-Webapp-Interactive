@@ -14,7 +14,7 @@ export const DESTINATIONS = [
     duration: "3 jours",
     price: "4 200 €",
     era: "1889",
-    imageUrl: null, // à remplacer par l'URL Imgur/Cloudinary réelle
+    imageUrl: "/assets/paris-1889.png",
   },
   {
     id: "cretace",
@@ -28,7 +28,7 @@ export const DESTINATIONS = [
     duration: "2 jours",
     price: "7 800 €",
     era: "-65 000 000",
-    imageUrl: null,
+    imageUrl: "/assets/cretace.png",
   },
   {
     id: "florence-1504",
@@ -42,6 +42,6 @@ export const DESTINATIONS = [
     duration: "4 jours",
     price: "5 100 €",
     era: "1504",
-    imageUrl: null,
+    imageUrl: "/assets/florence.png",
   },
 ];

@@ -1,10 +1,19 @@
 export default function DestinationCard({ destination, onOpen }) {
-  const { badge, title, tagline, imageUrl } = destination;
+  const { badge, title, tagline, imageUrl, videoUrl } = destination;
 
   return (
     <article className="dest-card" onClick={() => onOpen(destination)}>
       <div className="dest-card-media">
-        {imageUrl ? (
+        {videoUrl ? (
+          <video
+            src={videoUrl}
+            autoPlay
+            muted
+            loop
+            playsInline
+            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+          />
+        ) : imageUrl ? (
           <img
             src={imageUrl}
             alt={`${title} — ${badge}`}
