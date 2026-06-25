@@ -2,6 +2,9 @@
 
 > Agence de voyage temporel fictive. Explorez Paris 1889, le Crétacé, ou la Florence de la Renaissance — avec un conseiller IA intégré.
 
+🌐 **Site en ligne :** [timetravel-agency.theo-saly.com](https://timetravel-agency.theo-saly.com/)  
+📦 **Dépôt GitHub :** [theo-saly/TimeTravel-Agency-Webapp-Interactive](https://github.com/theo-saly/TimeTravel-Agency-Webapp-Interactive/tree/main)
+
 Projet pédagogique réalisé en M1 Digital & IA — Ynov Campus.  
 Application front-end single-page avec chatbot IA conversationnel en temps réel.
 
