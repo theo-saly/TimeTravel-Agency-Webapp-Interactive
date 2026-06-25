@@ -1,0 +1,22 @@
+export default function Hero() {
+  return (
+    <section className="hero" id="top">
+      <div className="hero-bg" aria-hidden="true" />
+      <div className="hero-content">
+        <span className="eyebrow">TimeTravel Agency</span>
+        <h1 className="hero-title">
+          Voyagez à travers <em>le temps</em>
+        </h1>
+        <p className="hero-subtitle">
+          Trois époques d'exception, encadrées par nos historiens et ingénieurs
+          temporels, pour des voyageurs en quête d'absolu.
+        </p>
+        <div className="hero-actions">
+          <a href="#destinations" className="btn-gold">
+            Découvrir nos destinations
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
