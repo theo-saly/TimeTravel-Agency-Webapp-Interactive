@@ -1,7 +1,17 @@
 export default function Hero() {
   return (
     <section className="hero" id="top">
-      <div className="hero-bg" aria-hidden="true" />
+      <div className="hero-bg" aria-hidden="true">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+        >
+          <source src="/assets/florence-video.mp4" type="video/mp4" />
+        </video>
+      </div>
       <div className="hero-content">
         <span className="eyebrow">TimeTravel Agency</span>
         <h1 className="hero-title">
